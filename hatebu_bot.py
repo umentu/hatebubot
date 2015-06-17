@@ -43,10 +43,10 @@ class Hatebu(object):
         格納されているため、data["title"]などで必要な情報が得られる。
         """
  
-        # hatebu_bookmarkcountの項目がない場合があるため、項目がある場合のみ取得
-        if "hatena_bookmarkcount" in data.keys():
- 
-            for data in feed["entries"]:
+        # hatebu_bookmarkcountの項目がない場合があるため、項目がある場合のみ取得 
+        for data in feed["entries"]:
+
+            if "hatena_bookmarkcount" in data.keys():
  
                 tmp = dict(title=data["title"],
                            date=data["date"],
