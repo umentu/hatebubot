@@ -37,14 +37,14 @@ class Hatebu(object):
         feed = feedparser.parse(xml)
  
         """
-　　　　 各ブックマークは、XMLデータのentriesタグの中にItemタグ単位で保存されている。
+        各ブックマークは、XMLデータのentriesタグの中にItemタグ単位で保存されている。
         feed["entries"]でentriesの中から一つずつItemを取り出し、dataに格納する。
         dataは、Itemタグ内のtitleやdateの情報がparse関数によってdict型に変換されて
         格納されているため、data["title"]などで必要な情報が得られる。
         """
 
         for data in feed["entries"]:
-            
+
             # hatebu_bookmarkcountの項目がない場合があるため、項目がある場合のみ取得 
             if "hatena_bookmarkcount" in data.keys():
  
